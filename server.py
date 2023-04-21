@@ -1,4 +1,5 @@
 import socket
+import json
 
 # define the host and port to listen on
 HOST = 'localhost'
@@ -18,20 +19,36 @@ print('Chat room server started on {}:{}'.format(HOST, PORT))
 client_socket, address = server_socket.accept()
 print('Connected to {}:{}'.format(address[0], address[1]))
 
-while True:
-    # receive data from the client
-    data = client_socket.recv(1024).decode('utf-8')
+# open the chat log file in append mode
+with open('chat_log.json', 'a') as f:
+    while True:
+        # receive data from the client as bytes
+        data_bytes = client_socket.recv(1024)
 
-    # if no data received, client has disconnected
-    if not data:
-        print('Client disconnected')
-        break
+        # if no data received, client has disconnected
+        if not data_bytes:
+            print('Client disconnected')
+            break
 
-    print('{}: {}'.format(address[0], data))
+        # decode the bytes as a string and load the JSON data
+        data_str = data_bytes.decode('utf-8')
+        data = json.loads(data_str)
 
-    # send the received data back to the client
-    client_socket.sendall(data.encode('utf-8'))
+        # print the received data
+        print('{}: {}'.format(data['username'], data['message']))
+
+        # add the message to the chat log file
+        f.write(json.dumps(data) + '\n')
+
+        # send the received data back to the client as JSON
+        response_data = {'message': data['message'], 'username': 'Server'}
+        response_data_str = json.dumps(response_data)
+        client_socket.sendall(response_data_str.encode('utf-8'))
+
+        # send a message to the client
+        server_message = {'message': 'Hello, client!', 'username': 'Server'}
+        server_message_str = json.dumps(server_message)
+        client_socket.sendall(server_message_str.encode('utf-8'))
 
 # close the connection and the server
-client_socket.close()
 server_socket.close()
