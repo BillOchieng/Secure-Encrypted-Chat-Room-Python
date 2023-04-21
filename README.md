@@ -1,6 +1,7 @@
 # Secure-Encrypted-Chat-Room-Python
+
  SafeChat: Building a Secure Encrypted Chat Room using Python!
- 
+
 *Detailed Description:*
 
 SafeChat is a secure and encrypted chat room built using Python that allows individuals and institutions to communicate in a safe and secure manner. SafeChat uses industry-standard encryption algorithms to protect messages from unauthorized access and ensure that only the intended recipient can read the messages.
