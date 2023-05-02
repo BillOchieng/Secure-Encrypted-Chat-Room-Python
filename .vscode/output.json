@@ -1,0 +1,25 @@
+{
+    "vulnerabilities": [
+        {
+            "type": "SQL Injection",
+            "severity": "High",
+            "description": "Unsanitized user input used in SQL query",
+            "example": "SELECT * FROM users WHERE username='admin' OR 1=1;",
+            "fix": "Sanitize user input before using in SQL queries"
+        },
+        {
+            "type": "Input Validation",
+            "severity": "Medium",
+            "description": "Missing input validation for transaction amount field",
+            "example": "{'from': 'userA', 'to': 'userB', 'amount': -1000}",
+            "fix": "Implement input validation to ensure valid transaction amounts"
+        },
+        {
+            "type": "Authentication",
+            "severity": "Low",
+            "description": "Weak password policy for user accounts",
+            "example": "Password requirements: 4-8 characters, no special characters",
+            "fix": "Implement stronger password policy with longer minimum length and special character requirements"
+        }
+    ]
+}

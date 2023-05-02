@@ -1,0 +1,46 @@
+{
+    "transactions": [
+        {
+            "transaction_id": "123456789",
+            "amount": 500.00,
+            "currency": "USD",
+            "date": "2022-01-01",
+            "description": "Online purchase"
+        },
+        {
+            "transaction_id": "234567890",
+            "amount": 250.00,
+            "currency": "EUR",
+            "date": "2022-01-02",
+            "description": "In-store purchase"
+        },
+        {
+            "transaction_id": "345678901",
+            "amount": 1000.00,
+            "currency": "CAD",
+            "date": "2022-01-03",
+            "description": "Large transfer"
+        },
+        {
+            "transaction_id": "456789012",
+            "amount": 10.00,
+            "currency": "USD",
+            "date": "2022-01-04",
+            "description": "Small transfer"
+        },
+        {
+            "transaction_id": "567890123",
+            "amount": 50000.00,
+            "currency": "USD",
+            "date": "2022-01-05",
+            "description": "Large purchase"
+        },
+        {
+            "transaction_id": "678901234",
+            "amount": 500.00,
+            "currency": "USD",
+            "date": "2022-01-06",
+            "description": "<script>alert('malicious code')</script>"
+        }
+    ]
+}

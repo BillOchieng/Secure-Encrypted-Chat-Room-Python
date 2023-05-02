@@ -1,0 +1,16 @@
+{
+    "expected_formats": [
+        "yyyy-mm-dd",
+        "dd-mm-yyyy",
+        "mm/dd/yyyy",
+        "yyyy/mm/dd",
+        "dd.mm.yyyy",
+        "mm.dd.yyyy"
+    ],
+    "forbidden_inputs": [
+        "DROP TABLE",
+        "DELETE FROM",
+        "INSERT INTO",
+        "UPDATE"
+    ]
+}
